@@ -14,7 +14,7 @@ async function getAllData() {
   }
 }
 // récupération des ID pour les photographers et les medias
-async function photographersById() {
+async function photographersById(photographer) {
   const { photographers } = await getAllData();
   const photographerByID = photographers.find((elem) => id == elem.id);
   console.log(
