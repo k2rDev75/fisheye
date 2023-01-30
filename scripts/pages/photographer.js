@@ -8,8 +8,6 @@ async function getAllData() {
   try {
     const getData = await fetch("../../data/photographers.json");
     const data = await getData.json();
-    // console.log("🚀 ~ file: photographer.js:11 ~ getAllData ~ data", data);
-
     return data;
   } catch (error) {
     console.log("Error =>: ", error);
@@ -19,9 +17,13 @@ async function getAllData() {
 async function photographersById() {
   const { photographers } = await getAllData();
   const photographerByID = photographers.find((elem) => id == elem.id);
+  console.log(
+    "🚀 ~ file: photographer.js:22 ~ photographersById ~ photographerByID",
+    photographerByID
+  );
   return photographerByID;
 }
-let photoById = photographersById();
+
 async function mediasById() {
   const { media } = await getAllData();
   const allMediaById = media.filter((elem) => id == elem.photographerId);
@@ -36,6 +38,11 @@ async function displayProfilHeader(photographer) {
   const userCardDOM = photographerModel.headerPhotographerDOM();
   header.append(userCardDOM);
 }
-mediasById();
-photographersById();
-displayProfilHeader(photographersById());
+async function init() {
+  const { photographers, media } = await getAllData();
+  console.log("🚀 ~ file: photographer.js:43 ~ init ~ photographers", photographers)
+  photographersById();
+  mediasById();
+  displayProfilHeader(photographers);
+}
+init();

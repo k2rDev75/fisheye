@@ -8,7 +8,7 @@ function photographerFactory(data) {
     article.classList.add("card");
     article.innerHTML = `
             <a href="photographer.html?photographer=${id}", aria-label="Page de ${name}"/>
-                <img src="assets/photographersId/${portrait}" alt="Photo de profil du photographe ${name}">
+                <img src=${picture} alt="Photo de profil du photographe ${name}">
                 <h2>${name}</h2>
             </a>
             <p class="location">${city}, ${country}</p>
@@ -28,10 +28,10 @@ function photographerFactory(data) {
                 <p id="tagline">${tagline}</p>
             </div>
             <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-            <img src="assets/photographersId/${portrait}" alt="Photo de profil du photographe ${name}">
+            <img src=${picture} alt="Photo de profil du photographe ${name}">
             `;
     return article;
   }
 
-  return { getUserCardDOM, headerPhotographerDOM };
+  return { name, tagline, getUserCardDOM, headerPhotographerDOM };
 }

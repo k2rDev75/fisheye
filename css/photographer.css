@@ -1,3 +1,40 @@
+.header_profil {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    padding: 0 25px;
+}
+
+.header_profil #photographer-details h1{
+    font-weight: 400;
+    font-size: 64px;
+    margin: 0;
+    color: #D3573C;
+}
+
+.header_profil #photographer-details #location{
+    font-size: 24px;
+    color: #901C1C;
+    font-weight: 400;
+}
+
+.header_profil #photographer-details #tagline{
+    font-size: 18px;
+    color: #525252;
+    font-weight: 400;
+}
+
+
+.header_profil img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit:cover;
+}
+
+
+
 #contact_modal {
     display: none;
 }
