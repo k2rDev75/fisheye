@@ -33,5 +33,5 @@ function photographerFactory(data) {
     return article;
   }
 
-  return { name, tagline, getUserCardDOM, headerPhotographerDOM };
+  return { getUserCardDOM, headerPhotographerDOM };
 }
