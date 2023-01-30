@@ -8,6 +8,8 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
+    <script src="https://kit.fontawesome.com/7fdc441973.js" crossorigin="anonymous"></script>
+    
     <title>Fisheye - photographe</title>
   </head>
   <body>
@@ -18,6 +20,26 @@
     </header>
     <main id="main">
       <div class="photograph-header"></div>
+      <section id="portfolio" class="portfolio">
+        <div id="portfolio_select" class="portfolio_select">
+          <label class="focus_text_sort">Trier par </label>
+          <div class="css-select" id="select" aria-expanded="false">
+            <input type="hidden" name="select1" value="" data-css-select="hidden" />
+            <input type="text" class="css-select__selected" value="Select :" aria-label="Select 1" readonly
+              data-css-select="selected" aria-haspopup="listbox" />
+            <div role="listbox" class="css-select__dropdown" aria-labelledby="focus_text_sort">
+              <button type="button" class="css-select__option" data-css-select="Popularité"
+                aria-label="Trier par popularité" onclick="cssSelect(this);">Popularité</button>
+              <button type="button" class="css-select__option" data-css-select="Date" aria-label="Trier par date"
+                onclick="cssSelect(this);">Date</button>
+              <button type="button" class="css-select__option" data-css-select="Titre" aria-label="Trier par titre"
+                onclick="cssSelect(this);">Titre</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section_medias"></section>
+
     </main>
     <div id="contact_modal">
       <div class="modal">

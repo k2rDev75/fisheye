@@ -1,113 +1,413 @@
 .header_profil {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 300px;
-    padding: 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 300px;
+  padding: 0 50px;
 }
 
-.header_profil #photographer-details h1{
-    font-weight: 400;
-    font-size: 64px;
-    margin: 0;
-    color: #D3573C;
+.header_profil #photographer-details h1 {
+  font-weight: 400;
+  font-size: 64px;
+  margin: 0;
+  color: #d3573c;
 }
 
-.header_profil #photographer-details #location{
-    font-size: 24px;
-    color: #901C1C;
-    font-weight: 400;
+.header_profil #photographer-details #location {
+  font-size: 24px;
+  color: #901c1c;
+  font-weight: 400;
 }
 
-.header_profil #photographer-details #tagline{
-    font-size: 18px;
-    color: #525252;
-    font-weight: 400;
+.header_profil #photographer-details #tagline {
+  font-size: 18px;
+  color: #525252;
+  font-weight: 400;
 }
-
 
 .header_profil img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit:cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/*
+ ****************** TRI***************
+*/
+.portfolio {
+  margin: 2em 2em 1em 2em;
 }
 
+.portfolio_select {
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 65px;
+}
 
+.css-select {
+  position: relative;
+}
+
+.css-select:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  right: 30px;
+  width: 10px;
+  height: 10px;
+  border: 0 solid #fff;
+  border-width: 0 0.225rem 0.225rem 0;
+  transform: rotate(45deg);
+  transition: top 0.3s ease, transform 0.3s ease;
+  will-change: top;
+  pointer-events: none;
+}
+
+.css-select:focus-within:after {
+  top: calc(50% - 0.25rem);
+  transform: rotate(225deg);
+}
+
+.css-select__selected {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: DM Sans, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  border: none;
+  border-radius: 5px;
+  background: #901c1c;
+  box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  outline: none !important;
+  width: 170px;
+  height: 64px;
+  padding-left: 20px;
+}
+
+.css-select__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-height: 9.75rem;
+  background: #901c1c;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 0.25rem 1rem 0 rgba(0, 0, 0, 0.25);
+  transform: translateY(-0.25rem);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  overflow: auto;
+  z-index: 9999;
+}
+
+.css-select__option .css-select__dropdown[aria-expanded="true"] {
+  visibility: visible;
+}
+
+.css-select__dropdown::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+.css-select__dropdown::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 5px;
+}
+
+.css-select__dropdown::-webkit-scrollbar-thumb {
+  background: #535353;
+  border-radius: 5px;
+}
+
+.css-select__dropdown::-webkit-scrollbar-thumb:hover {
+  background: #717171;
+}
+
+.css-select:focus-within .css-select__dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.css-select__option {
+  display: block;
+  margin: 0;
+  padding: 0.5rem;
+  padding-left: 20px;
+  width: 100%;
+  font-family: DM Sans, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  line-height: 1.2;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  transition: background 0.3s ease;
+  cursor: pointer;
+  outline: none !important;
+}
+
+.css-select__selected:hover,
+.css-select__selected:focus,
+.css-select__option:hover,
+.css-select__option:focus {
+  color: #000000;
+  background: #d3573c;
+}
+
+@media screen and (max-width: 900px) {
+  .portfolio_select {
+    margin: 1em;
+  }
+}
+
+.portfolio label {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  font-weight: bold;
+  line-height: 23.44px;
+  text-align: left;
+  margin: 0 1em 0 0;
+}
 
 #contact_modal {
-    display: none;
+  display: none;
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
 }
 
+/* media card */
+.section_medias {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 80px;
+  margin: auto;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.media_profil {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: auto;
+}
+
+.card_media {
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.mediaRandom {
+  width: 350px;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.card_description {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  max-width: 350px;
+}
+
+.titre_media {
+  color: #901c1c;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.likes .media_likes {
+  font-weight: 500;
+  font-size: 16px;
+  color: black;
+  margin: 0 10px 0 0;
+}
+
+.likes .fa-heart {
+  font-size: 24px;
+  color: grey;
+  cursor: pointer;
+}
+
+.info-price {
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  bottom: 0;
+  right: 50px;
+  width: 376px;
+  height: 73px;
+  background: #db8876;
+  border-radius: 5px 5px 0 0;
+  z-index: 100;
+}
+
+.info-price .total {
+  display: flex;
+  align-items: center;
+}
+
+.info-price .total .total-likes {
+  font-size: 24px;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+.info-price .total em {
+  font-size: 24px;
+}
+
+.info-price .price {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.thanks {
+  display: none;
+  text-align: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .headerblock {
+    flex-direction: column;
+  }
+
+  .photograph-header {
+    height: 550px;
+  }
+
+  #photographer-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #photographer-details h1 {
+    text-align: center;
+  }
+
+  .contact_button {
+    min-height: 69px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .medias {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .photograph-header {
+    margin: 0 25px;
+  }
+
+  .contact_button {
+    min-width: 170px;
+  }
+
+  .filtre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .info-price {
+    width: 270px;
+  }
+}
+
+/* fin media card */
+
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 0 150px 0 0;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
 }
 
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+  color: #312e2e;
+  font-size: 36px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
 }
 
 form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }

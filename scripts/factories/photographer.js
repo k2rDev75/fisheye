@@ -35,3 +35,36 @@ function photographerFactory(data) {
 
   return { getUserCardDOM, headerPhotographerDOM };
 }
+
+function mediaFactory(data) {
+  const { image, title, likes, photographerId, video, id } = data;
+
+
+  function getMediaDOM() {
+    let media;
+    if (image !== undefined) {
+      media = `<img src="assets/photographers/${photographerId}/${image}" id="lightbox-media" class="mediaRandom" alt="${title}" data-media-type="image">`;
+    } else {
+      media = `<video src="assets/photographers/${photographerId}/${video}" controls id="lightbox-media" class="mediaRandom" title="${title}" data-media-type="video"></video>`;
+    }
+    let article = document.createElement("article");
+    article.classList.add("media_profil");
+    article.innerHTML = `
+      <div class="card_media">
+        ${media}
+      </div>
+      <div class="card_description">
+        <p class="titre_media">${title}</p>
+        <div class="likes">
+          <p class="media_likes" id="likes-${id}">${likes}</p>
+          <i class="fa-solid fa-heart icon heart" id="heart-${id}"></i>
+        </div>
+      </div>
+    `;
+    return article;
+  }
+
+  return {
+    getMediaDOM,
+  };
+}
