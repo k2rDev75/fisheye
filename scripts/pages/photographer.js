@@ -1,7 +1,7 @@
 const photographerID = () =>
   new URLSearchParams(window.location.search).get("photographer");
 const id = photographerID();
-console.log("🚀 ~ file: photographer.js:4 ~ id", id)
+console.log("🚀 ~ file: photographer.js:4 ~ id", id);
 
 async function getData() {
   try {
@@ -61,12 +61,33 @@ btnSelect.addEventListener("mousedown", (event) => {
 // ***************** DISPLAY MEDIA
 async function displayMedia(medias) {
   const mediaSection = document.querySelector(".section_medias");
-  let i = 0;
 
   medias.forEach((media) => {
     let modelMedia = mediaFactory(media);
     let photographerMedia = modelMedia.getMediaDOM();
     mediaSection.append(photographerMedia);
+
+    // *********** GESTION des likes en passant par l'id unique qui lie le coeur et la photo correspondante
+    //************ se referer à la function factory dans le dossier factories */
+    const heart = document.querySelector(`#heart-${media.id}`);
+    const mediaLikes = document.querySelector(`#likes-${media.id}`).textContent;
+    // Ici je teste avec Json parse car le click me renvoie [object HTMLElement]
+    let test = JSON.parse(mediaLikes)
+    // console.log("mediaLikes & heart", mediaLikes, heart)
+    heart.addEventListener("click", () => {
+      console.log(`le coeur ${test} est cliqué`);// le click me renvoie [object HTMLElement]
+      console.log(typeof test)
+
+
+    });
+  });
+
+  // AJOUT pour l'accessibilité
+
+  const profilsMedia = document.querySelectorAll(".media_profil");
+  //   console.log("🚀 ~ file: photographer.js:73 ~ profilsMedia", profilsMedia);
+  profilsMedia.forEach((media, index) => {
+    media.setAttribute("tabindex", index);
   });
 }
 
