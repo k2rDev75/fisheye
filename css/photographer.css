@@ -243,11 +243,22 @@
   color: black;
   margin: 0 10px 0 0;
 }
+.likes .media_likes-add {
+  font-size: 22px;
+  color: red;
+  transition: font-size 0.1s, color 0.1s;
+}
 
 .likes .fa-heart {
-  font-size: 24px;
+  font-size: 22px;
   color: grey;
   cursor: pointer;
+}
+.likes .add-heart {
+  font-size: 26px;
+  color: red;
+  cursor: pointer;
+  transition: font-size 0.1s, color 0.1s;
 }
 
 .info-price {

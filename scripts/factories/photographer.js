@@ -1,6 +1,6 @@
 function photographerFactory(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
-  console.log(name, id, city, country, tagline, price, portrait);
+  // console.log(name, id, city, country, tagline, price, portrait);
   const picture = `assets/photographersId/${portrait}`;
 
   function getUserCardDOM() {
@@ -39,7 +39,6 @@ function photographerFactory(data) {
 function mediaFactory(data) {
   const { image, title, likes, photographerId, video, id } = data;
 
-
   function getMediaDOM() {
     let media;
     if (image !== undefined) {
@@ -57,7 +56,7 @@ function mediaFactory(data) {
         <p class="titre_media">${title}</p>
         <div class="likes">
           <p class="media_likes" id="likes-${id}">${likes}</p>
-          <i class="fa-solid fa-heart icon heart" id="heart-${id}"></i>
+          <i class="fa-solid fa-heart icon heart far" id="heart-${id}"></i>
         </div>
       </div>
     `;
