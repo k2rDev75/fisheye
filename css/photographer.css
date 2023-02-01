@@ -34,7 +34,93 @@
 /*
  ****************** TRI***************
 */
-.portfolio {
+
+.container {
+  display: flex;
+  position: relative;
+  margin: 20px 100px;
+  box-sizing: border-box;
+}
+
+.label {
+  justify-content: center;
+  margin: 10px;
+  height: 40px;
+  font-size: 20px;
+}
+
+#listbox {
+  z-index: 99;
+}
+
+.select {
+  position: absolute;
+  left: 120px;
+  width: 200px;
+  height: 40px;
+  border: none;
+  text-transform: capitalize;
+  color: #fff;
+  background: #901c1c;
+  text-align: left;
+  padding-left: 25px;
+  font-size: 16px;
+  font-weight: bolder;
+  cursor: pointer;
+  justify-content: center;
+  transition: transform 1s;
+}
+.select::after {
+  content: "";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transition: transform 0.2s;
+}
+.select.active::after {
+  transform: translateY(-50%) rotate(225deg);
+  transition: transform 0.2s;
+}
+
+.options {
+  position: absolute;
+  top: 40px;
+  left: 120px;
+  width: 200px;
+  height: fit-content;
+  background: #901c1c;
+  overflow: hidden;
+  display: none;
+  padding: 10px 0;
+}
+.options.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.options .item {
+  font-size: 16px;
+  font-weight: bolder;
+  color: #fff;
+  text-transform: capitalize;
+  width: 160px;
+  height: 40px;
+  line-height: 30px;
+  text-align: left;
+  cursor: pointer;
+  border-top: 1px solid white;
+  background: #8F1C1C;
+  border: none;
+}
+.options .item.active {
+  display: none;
+}
+/* .portfolio {
   margin: 2em 2em 1em 2em;
 }
 
@@ -159,9 +245,9 @@
 .css-select__option:focus {
   color: #000000;
   background: #d3573c;
-}
+} */
 
-@media screen and (max-width: 900px) {
+/* @media screen and (max-width: 900px) {
   .portfolio_select {
     margin: 1em;
   }
@@ -175,7 +261,7 @@
   line-height: 23.44px;
   text-align: left;
   margin: 0 1em 0 0;
-}
+} */
 
 #contact_modal {
   display: none;
@@ -227,7 +313,7 @@
 
 .titre_media {
   color: #901c1c;
-  font-size: 24px;
+  font-size: 21px;
   font-weight: 400;
   margin: 0;
 }
@@ -369,56 +455,100 @@
   margin: 0 150px 0 0;
 }
 
-.modal {
-  border-radius: 5px;
-  background-color: #db8876;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 35px;
-  margin: auto;
+#contact_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.modal header {
+.modal {
+  display: flex;
+  width: 30rem;
+  height: 43rem;
+  margin: auto;
+  padding: 35px;
+  background-color: #db8876;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px 3px rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  position: relative;
+}
+
+.modal > div {
+  display: flex;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: baseline;
   width: 100%;
 }
 
-.modal header img {
+.modal img {
   cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  right: 2rem;
+  top: 3rem;
 }
 
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+.modal h1 {
+  font-size: 3rem;
+  margin: 0;
 }
+
+.contactModalName {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.modal p {
+  font-size: 50px;
+  font-weight: normal;
+  margin: 0.4rem 0;
+}
+
+/*
+********* fourmulaire
+*/
 
 form {
   display: flex;
   width: 100%;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 1rem;
 }
 
-form label {
-  color: #312e2e;
-  font-size: 36px;
-}
-
-form div {
+.formData {
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
+  margin-bottom: 0.9rem;
 }
-
-form input {
+.text-control {
   width: 100%;
-  height: 68px;
+  height: 2rem;
   border: none;
   border-radius: 5px;
+  font-size: 1rem;
+}
+textarea {
+  width: 100%;
+  min-height: 10rem;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+label {
+  font-size: 20px;
+  color: #312e2e;
+}
+
+/* gestion error taille police et couleur */
+.error {
+  font-size: 1em;
+  color: red;
 }

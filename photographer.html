@@ -8,7 +8,10 @@
       href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/7fdc441973.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/7fdc441973.js"
+      crossorigin="anonymous"
+    ></script>
 
     <title>Fisheye - photographe</title>
   </head>
@@ -20,39 +23,141 @@
     </header>
     <main id="main">
       <div class="photograph-header"></div>
-      <section id="portfolio" class="portfolio">
+      <!-- <section id="portfolio" class="portfolio">
         <div id="portfolio_select" class="portfolio_select">
           <label class="focus_text_sort">Trier par </label>
           <div class="css-select" id="select" aria-expanded="false">
-            <input type="hidden" name="select1" value="" data-css-select="hidden" />
-            <input type="text" class="css-select__selected" value="Select :" aria-label="Select 1" readonly
-              data-css-select="selected" aria-haspopup="listbox" />
-            <div role="listbox" class="css-select__dropdown" aria-labelledby="focus_text_sort">
-              <button type="button" class="css-select__option" data-css-select="Popularité"
-                aria-label="Trier par popularité" onclick="cssSelect(this);">Popularité</button>
-              <button type="button" class="css-select__option" data-css-select="Date" aria-label="Trier par date"
-                onclick="cssSelect(this);">Date</button>
-              <button type="button" class="css-select__option" data-css-select="Titre" aria-label="Trier par titre"
-                onclick="cssSelect(this);">Titre</button>
+            <input
+              type="hidden"
+              name="select1"
+              value=""
+              data-css-select="hidden"
+            />
+            <input
+              type="text"
+              class="css-select__selected"
+              value="Select :"
+              aria-label="Select 1"
+              readonly
+              data-css-select="selected"
+              aria-haspopup="listbox"
+            />
+            <div
+              role="listbox"
+              class="css-select__dropdown"
+              aria-labelledby="focus_text_sort"
+            >
+              <button
+                type="button"
+                class="css-select__option"
+                data-css-select="Popularité"
+                aria-label="Trier par popularité"
+                onclick="cssSelect(this);"
+              >
+                Popularité
+              </button>
+              <button
+                type="button"
+                class="css-select__option"
+                data-css-select="Date"
+                aria-label="Trier par date"
+                onclick="cssSelect(this);"
+              >
+                Date
+              </button>
+              <button
+                type="button"
+                class="css-select__option"
+                data-css-select="Titre"
+                aria-label="Trier par titre"
+                onclick="cssSelect(this);"
+              >
+                Titre
+              </button>
             </div>
           </div>
         </div>
-      </section>
-      <section class="section_medias"></section>
+      </section> -->
 
+      <div class="container" role="presentation" aria-label="Trier par">
+        <span class="label" >Trier par </span>
+        <button class="select" id="select" name="select" value="options"  aria-haspopup="true" aria-expanded="false" >options</button>
+        <div class="options" role="listbox" id="listbox">
+            <button class="item active" tabindex="0" role="option" aria-selected="true" aria-label="Trier par popularité">Popularité</button>
+            <button class="item" tabindex="0" role="option" aria-selected="false" aria-label="Trier par date">Date</button>
+            <button class="item" tabindex="0" role="option" aria-selected="false" aria-label="Trier par titre">Titre</button>
+        </div>
+      </div>
+      <section class="section_medias"></section>
+      <section
+        id="lightbox"
+        class="lightbox-background"
+        role="lightbox"
+        aria-modal="true"
+        aria-hidden="true"
+        tabindex="-1"
+      ></section>
     </main>
     <div id="contact_modal">
       <div class="modal">
-        <header>
-          <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-        <form>
-          <div>
-            <label>Prénom</label>
-            <input />
+        <img
+          src="assets/icons/close.svg"
+          alt="close modal"
+          onclick="closeModal()"
+          tabindex="0"
+        />
+        <h2>Contactez-moi</h2>
+        <div class="contact_name"></div>
+
+        <form
+          id="contactForm"
+          name="reserve"
+          action="photographer.html"
+          method=""
+          aria-label="formulaire"
+        >
+          <div class="formData">
+            <label for="first">Prénom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="first"
+              name="first"
+              tabindex="2"
+            />
+            <span class="error" id="error1"></span>
           </div>
-          <button class="contact_button">Envoyer</button>
+          <div class="formData">
+            <label for="last">Nom</label>
+            <input
+              class="text-control"
+              type="text"
+              id="last"
+              name="last"
+              tabindex="2"
+            />
+            <span class="error" id="error2"></span>
+          </div>
+          <div class="formData">
+            <label for="email">E-mail</label>
+            <input
+              class="text-control"
+              type="email"
+              id="email"
+              name="email"
+              tabindex="2"
+            />
+            <span class="error" id="error3"></span>
+          </div>
+          <div class="formData">
+            <label for="message">Votre message</label>
+            <textarea name="message" id="message" tabindex="2"></textarea>
+            <span class="error" id="error4"></span>
+          </div>
+
+          <button class="contact_button" onclick="return validate()">
+            Envoyer
+          </button>
         </form>
       </div>
     </div>
