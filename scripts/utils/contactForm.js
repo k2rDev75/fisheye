@@ -14,7 +14,8 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeMod = document.querySelector(".close");
 const form = document.querySelector("#contactForm");
-const submit = document.querySelector(".button");
+const submit = document.querySelector(".contact_button");
+
 let nameContact = document.querySelector('.contact_name')
 
 // selection input
@@ -22,6 +23,8 @@ const prenom = document.querySelector("#first");
 const nom = document.querySelector("#last");
 const email = document.querySelector("#email");
 const message = document.querySelector("#message");
+
+submit.addEventListener('click', validate)
 
 // regex
 const emailRegex =
@@ -92,9 +95,9 @@ function validate() {
   }
 
   if (!error) {
-    form.style.display = "none";
+    closeModal()
     // setInterval(() => form.submit(), 3000);
-    window.addEventListener("click", () => form.submit());
+    console.log("form submitted ");
   }
   return false;
 }

@@ -73,10 +73,11 @@ async function displayMedia(medias) {
   console.log("🚀 ~ file: photographer.js:73 ~ displayMedia ~ options", options)
   let activeOption = 0;
 
-  select.addEventListener("click", (e) => {
+  select.addEventListener("click", (event) => {
     select.classList.toggle("active");
     optionBox.classList.toggle("active");
     select.setAttribute("aria-expanded", select.classList.contains("active"));
+    console.log(sortMedias(medias, event))
   });
 
   const setValue = () => {
@@ -96,23 +97,9 @@ async function displayMedia(medias) {
     });
   });
 
-  function sortMedias(medias) {
-    const sortOrder = {
-      Popularité: (a, b) => b.likes - a.likes,
-      Date: (a, b) => new Date(b.date) - new Date(a.date),
-      Titre: (a, b) =>
-        a.title.toLowerCase().localeCompare(b.title.toLowerCase()),
-    };
-
-    const sortCriteria = select.innerHTML;
-    console.log("🚀 ~ file: photographer.js:178 ~ sortMedias ~ sortCriteria", sortCriteria)
-
-    return medias.sort(sortOrder[sortCriteria] || (() => 0));
-  }
 
   setValue();
   // sortMedias(medias);
-
   // ************************
 
   const mediaSection = document.querySelector(".section_medias");
@@ -131,23 +118,10 @@ async function displayMedia(medias) {
     //************ se referer à la function factory dans le dossier factories */
     const heart = document.querySelector(`#heart-${media.id}`);
     let mediaLikes = document.querySelector(`#likes-${media.id}`);
-    heart.addEventListener("click", likesIncDec);
+    heart.addEventListener("click", () => likesIncDec(heart, mediaLikes, media, likesElement));
     // ********* ici le total des likes
 
-    function likesIncDec() {
-      let likeContent = parseInt(mediaLikes?.textContent);
-      if (likeContent === media.likes) {
-        mediaLikes.textContent = likeContent + 1;
-        likesElement.textContent++;
-        heart.classList.add("add-heart");
-        mediaLikes.classList.add("media_likes-add");
-      } else {
-        mediaLikes.textContent = likeContent - 1;
-        likesElement.textContent--;
-        heart.classList.remove("add-heart");
-        mediaLikes.classList.remove("media_likes-add");
-      }
-    }
+    
   });
 
   // AJOUT pour l'accessibilité
